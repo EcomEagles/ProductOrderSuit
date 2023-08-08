@@ -8,7 +8,7 @@
         <section id="productordersuit" translate="label" type="text" sortOrder="1" showInDefault="1"
                  showInWebsite="1" showInStore="1">
             <class>separator-top</class>
-            <label>ProductOrderSuit</label>
+            <label>Product Order Suit</label>
             <tab>codilar</tab>
             <resource>Codilar_ProductOrderSuit::config</resource>
             <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1"
