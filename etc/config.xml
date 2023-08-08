@@ -5,9 +5,12 @@
         <productordersuit>
             <general>
                 <active>0</active>
+                <order_active>0</order_active>
                 <salable_qty_message>HURRY UP!!! ONLY %u LEFT</salable_qty_message>
-                <order_count_message>LAST 15 DAYS %u ORDER GOT PLACED</order_count_message>
-                <free_shipping_message>ENJOY FREE SHIPPING on orders over %u</free_shipping_message>
+                <order_count_message>LAST  %u DAYS %u  ORDER GOT PLACED</order_count_message>
+                <salable_qty_alert_value>10</salable_qty_alert_value>
+                <order_count_message_alert_value>15</order_count_message_alert_value>
+                <eligible_orders_for_product>1</eligible_orders_for_product>
                 <product_finder_enabled>0</product_finder_enabled>
             </general>
         </productordersuit>

@@ -1,13 +1,13 @@
 <?php
-
-/**@var Codilar\ProductOrderSuit\Block\ProductOrderCount $block */
-//$viewModel = $block->getData('product_count');
-//$value = $viewModel->getCountForProduct();
-
-
+/**
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Codilar\ProductOrderSuit\ViewModel\ProductOrderCount $viewModel
+ */
+$viewModel = $block->getData('product_view_model');
 ?>
-<?php if ($block->getCountForProduct()) { ?>
-    <span class = "order-count">  <?= $block->escapeHtml( $block->getCountForProduct()) ?> </span>
-<?php } ?>
 
-<span class="product_count"></span>
+<?php if ($viewModel->getCountForProduct()): ?>
+    <span class="order-count"><?= $block->escapeHtml($viewModel->getCountForProduct()) ?> </span>
+<?php endif; ?>
+
+<span class="order-count"></span>

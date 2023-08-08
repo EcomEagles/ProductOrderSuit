@@ -4,8 +4,15 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="Codilar_ProductOrderSuit::productordersuit" title="Product Order Suit" sortOrder="10">
-                    <resource id="Codilar_ProductOrderSuit::index_index" title="Product FInder" sortOrder="10"/>
+                <resource id="Codilar_ProductOrderSuit::productordersuit" title="product order suit" sortOrder="10">
+                    <resource id="Codilar_ProductOrderSuit::index_index" title="Product Finder" sortOrder="10"/>
+                </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Codilar_ProductOrderSuit::config" title="ProductOrderSuit Configuration"/>
+                        </resource>
+                    </resource>
                 </resource>
             </resource>
         </resources>
