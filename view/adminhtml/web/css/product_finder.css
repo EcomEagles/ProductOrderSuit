@@ -1,0 +1,76 @@
+/* Styles for the admin form */
+.question-admin-form {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.question-admin-form table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.question-admin-form th,
+.question-admin-form td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.question-admin-form input[type="text"],
+.question-admin-form button {
+    padding: 8px 15px;
+    margin-bottom: 5px;
+}
+
+.question-admin-form .options-container-0 {
+    margin-left: 20px;
+}
+
+.question-admin-form .options-data-0 {
+    margin-bottom: 10px;
+}
+
+/* Buttons */
+.question-admin-form .delete-option,
+.question-admin-form .deleteQuestion,
+.question-admin-form .add-option,
+.question-admin-form #insertRow {
+    background-color: #eb5202;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.question-admin-form .add-option:hover,
+.question-admin-form #insertRow:hover {
+    background-color: #eb5202;
+}
+
+/* Optional styles for better visual representation */
+.question-admin-form input[type="text"] {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.question-admin-form .add-option,
+.question-admin-form #insertRow {
+    margin-top: 10px;
+    display: block;
+}
+
+.question-admin-form .add-option {
+    margin-bottom: 10px;
+}
+
+.question-admin-form .delete-option,
+.question-admin-form .deleteQuestion {
+    margin-left: 10px;
+}
+
+/* Styling for the form container div */
+.question-admin-form > div {
+    margin-bottom: 20px;
+}

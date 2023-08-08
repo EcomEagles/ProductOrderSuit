@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="suit_product_finder" resource="default" engine="innodb" comment="Product Finder Table">
+        <column xsi:type="int" name="product_finder_id" unsigned="true" nullable="false" identity="true"
+                comment="Product Finder Id"/>
+        <column xsi:type="varchar" name="title" nullable="false" length="64" comment="Title"/>
+        <column xsi:type="smallint" name="status" nullable="false" identity="false" default="0" comment="Status"/>
+        <column xsi:type="text" name="description" nullable="true" comment="Description"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Creation Time"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Update Time"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="product_finder_id"/>
+        </constraint>
+    </table>
+
+    <table name="suit_product_finder_item" resource="default" engine="innodb" comment="Product Finder Question">
+        <column xsi:type="int" name="question_id" unsigned="true" nullable="false" identity="true"
+                comment="Question Id"/>
+        <column xsi:type="int" name="product_finder_id" unsigned="true" nullable="false" identity="false"
+                comment="Product Finder Id"/>
+        <column xsi:type="varchar" name="question" nullable="true" length="255" comment="Question"/>
+        <column xsi:type="varchar" name="options" nullable="true" length="255" comment="Options"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="question_id"/>
+        </constraint>
+        <constraint xsi:type="foreign"
+                    referenceId="SUIT_PRODUCT_FINDER_PRODUCT_FINDER_ID_SUIT_PRODUCT_FINDER_ITEM_PRODUCT_FINDER_ID"
+                    table="suit_product_finder_item" column="product_finder_id" referenceTable="suit_product_finder"
+                    referenceColumn="product_finder_id"/>
+    </table>
+</schema>

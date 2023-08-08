@@ -1,0 +1,76 @@
+@suit-questions-background:#2e45ed;
+
+@import "modules/_plp";
+
+& when (@media-common =true) {
+    .suit-index-questions {
+        .suit-questions {
+            text-align: center;
+            background: @suit-questions-background;
+            color: @color-white;
+            padding: 30px 0 100px;
+            border-radius: 5px;
+
+            .form-title {
+                font-weight: 700;
+                font-size: 40px;
+            }
+
+            h3.sub-title {
+                padding: 10px;
+            }
+
+            form {
+                margin: 0 auto;
+                max-width: 800px;
+                min-height: 450px;
+                border-radius: 5px;
+                opacity: 1;
+                background: @color-white;
+                color: @color-black;
+                padding: 30px 50px;
+
+                .q-and-a {
+                    text-align: initial;
+                    padding: 15px 0;
+                    p.question {
+                        font-size: 28px;
+                        font-weight: 600;
+                        max-width: 680px;
+                        margin: 0 auto;
+                    }
+
+                    .options {
+                        max-width: 600px;
+                        margin: 0 auto;
+                        input[type="radio"] {
+                            accent-color: @suit-questions-background;
+                        }
+
+                        label {
+                            font-size: 18px;
+                            font-weight: 500;
+                            line-height: 3;
+                        }
+                    }
+                    &:last-child{
+                        border-bottom: 0;
+                    }
+                }
+
+                .next-prev {
+                    display: flex;
+                    justify-content: space-around;
+                    margin: 20px 0;
+                }
+
+                button {
+                    background: @suit-questions-background;
+                    color: @color-white;
+                    padding: 15px 30px;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+}

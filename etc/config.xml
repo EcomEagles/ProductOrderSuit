@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <productordersuit>
+            <general>
+                <active>0</active>
+                <salable_qty_message>HURRY UP!!! ONLY %u LEFT</salable_qty_message>
+                <order_count_message>LAST 15 DAYS %u ORDER GOT PLACED</order_count_message>
+                <free_shipping_message>ENJOY FREE SHIPPING on orders over %u</free_shipping_message>
+                <product_finder_enabled>0</product_finder_enabled>
+            </general>
+        </productordersuit>
+    </default>
+</config>

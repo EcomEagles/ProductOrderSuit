@@ -1,0 +1,10 @@
+<?php
+
+/**@var Codilar\ProductOrderSuit\Block\ProductOrderCount $block */
+?>
+<?php if ($block->getProductQty()) { ?>
+    <span class = "avaliable_qty">  <?= $block->escapeHtml($block->getProductQty()) ?> </span>
+<?php }; ?>
+
+
+<span class="avaliable_qty"></span>

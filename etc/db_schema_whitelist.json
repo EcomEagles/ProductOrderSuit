@@ -1,0 +1,39 @@
+{
+    "suit_product_finder": {
+        "column": {
+            "product_finder_id": true,
+            "title": true,
+            "status": true,
+            "description": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "suit_product_finder_question": {
+        "column": {
+            "question_id": true,
+            "product_finder_id": true,
+            "question": true,
+            "options": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_19867D73E75B6C50B692229375500FDE": true
+        }
+    },
+    "suit_product_finder_item": {
+        "column": {
+            "question_id": true,
+            "product_finder_id": true,
+            "question": true,
+            "options": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "SUIT_PRD_FINDER_ITEM_PRD_FINDER_ID_SUIT_PRD_FINDER_PRD_FINDER_ID": true
+        }
+    }
+}

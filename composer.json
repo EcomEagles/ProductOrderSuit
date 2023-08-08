@@ -1,0 +1,16 @@
+{
+    "name": "codilar/module-productordersuit",
+    "description": "A necessary solution to completely manage product and process orders",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Codilar\\ProductOrderSuit\\": ""
+        }
+    }
+}

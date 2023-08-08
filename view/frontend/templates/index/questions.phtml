@@ -1,0 +1,56 @@
+<?php
+/**
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Magento\Framework\Escaper $escaper
+ * @var \Codilar\ProductOrderSuit\ViewModel\Data $viewModel
+ */
+
+$viewModel = $block->getData('view_model');
+
+$isEnabled = $viewModel->getIsProductFinderEnabled();
+$productFinder = $isEnabled ? $viewModel->getProductFinder() : null;
+?>
+<div class="suit-questions">
+    <?php if ($productFinder && $productFinder->getProductFinderId()): ?>
+        <h2 class="form-title"><?= $escaper->escapeHtml(__($productFinder->getTitle())) ?></h2>
+        <?php if ($description = $productFinder->getDescription()): ?>
+            <h3 class="sub-title"><?= $escaper->escapeHtml(__($description)) ?></h3>
+        <?php endif; ?>
+        <?php $productFinderItem = $viewModel->getProductFinderItem($productFinder->getProductFinderId()); ?>
+        <?php if ($productFinderItem): ?>
+            <form action="<?= $escaper->escapeUrl($this->getUrl('suit/index/submit')) ?>" method="post"
+                  id="product_finder_question" data-mage-init='{"validation":{}}'>
+                <?php $itemNum = 1 ?>
+                <?php foreach ($productFinderItem as $item): ?>
+                    <div class="q-and-a">
+                        <p class="question">
+                            <span><?= $itemNum . ' . ' ?></span><?= $escaper->escapeHtml(__($item->getQuestion())) ?>
+                        </p>
+                        <div class="options">
+                            <?php $options = json_decode($item->getOptions(), true); ?>
+                            <?php foreach ($options as $key => $option) : ?>
+                                <div>
+                                    <input type="radio"
+                                           id="<?= "question_" . $item->getQuestionId() . "_option_" . $key ?>"
+                                           name="<?= "question_" . $item->getQuestionId() . "_option[]" ?>"
+                                           data-sku="<?= $option['sku'] ?>"
+                                           value="<?= base64_encode($option['sku']) ?>"
+                                           data-validate='{"required":true}'>
+                                    <label for="<?= "question_" . $item->getQuestionId() . "_option_" . $key ?>">
+                                        <?= $escaper->escapeHtml(__($option['option'])) ?>
+                                    </label>
+                                </div>
+                            <?php endforeach; ?>
+                            <?php $itemNum++; ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+                <button type="submit" class="action submit" title="<?= $escaper->escapeHtmlAttr(__('Submit')) ?>">
+                    <span><?= $escaper->escapeHtml(__('Submit')) ?></span>
+                </button>
+            </form>
+        <?php endif; ?>
+    <?php else : ?>
+        <h2 class="form-title"><?= $escaper->escapeHtml(__('No Product Finder')) ?></h2>
+    <?php endif; ?>
+</div>

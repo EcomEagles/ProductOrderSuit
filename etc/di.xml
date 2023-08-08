@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="suit_product_finder_listing_data_source" xsi:type="string">
+                    Codilar\ProductOrderSuit\Model\ResourceModel\ProductFinder\Grid\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Codilar\ProductOrderSuit\Model\ResourceModel\ProductFinder\Grid\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">suit_product_finder</argument>
+            <argument name="resourceModel" xsi:type="string">
+                Codilar\ProductOrderSuit\Model\ResourceModel\ProductFinder
+            </argument>
+        </arguments>
+    </virtualType>
+</config>

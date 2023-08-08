@@ -1,0 +1,92 @@
+<?php
+/**
+ * @var \Magento\Framework\Escaper $escaper
+ * @var \Magento\Backend\Block\Template $block
+ * @var $viewModel \Codilar\ProductOrderSuit\ViewModel\Data
+ */
+
+$viewModel = $block->getViewModel();
+$productFinderItem = $viewModel->getProductFinderItem($this->getRequest()->getParam('id'));
+?>
+<div class="question-admin-form">
+    <div class="">
+        <table class="question">
+            <tbody>
+            <tr class="question-container">
+                <td>
+                    <input data-form-part="suit_product_finder_form" class="" type="text"
+                           placeholder="Question" name="questions_data[0][question]" value=""/>
+                    <div class="options-container-0">
+                        <div class="options-data-0">
+                            <input data-form-part="suit_product_finder_form" type="text"
+                                   placeholder="Option" name="questions_data[0][options][0][option]"
+                                   data-validate='{"required":true}'/>
+                            <input data-form-part="suit_product_finder_form" type="text"
+                                   placeholder="SKUs (comma saparated)"
+                                   name="questions_data[0][options][0][sku]" size="50">
+                            <button data-question="0" data-item-option="0" class="delete-option">Delete option
+                            </button>
+                        </div>
+                    </div>
+                    <button data-question="0" class="add-option">add option</button>
+                </td>
+                <td>
+                    <button class="deleteQuestion">Delete Question</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <button id="insertRow">Add Question</button>
+</div>
+
+
+<script>
+    require(['jquery', 'jquery/ui'], function ($) {
+        var counter = $('.question-container').length;
+
+        // To add admin form Questions
+        $("#insertRow").on("click", function () {
+            var newRow = $("<tr class='question-container'>");
+            var cols = '';
+            cols = '<td>' +
+                '<input data-form-part="suit_product_finder_form" class="" type="text" placeholder="Question" name="questions_data[' + counter + '][question]">' +
+                '<div class="options-container-' + counter + '">' +
+                '<div class="options-data-' + counter + '">' +
+                '<input data-form-part="suit_product_finder_form" class="" type="text" placeholder="Option" name="questions_data[' + counter + '][options][0][option]">' +
+                '<input data-form-part="suit_product_finder_form" type="text" placeholder="SKUs (comma saparated)" name="questions_data[' + counter + '][options][0][sku]" size="50">' +
+                '<button data-question="' + counter + '" data-item-option="0" class="delete-option">Delete option</button>' +
+                '</div>' +
+                '</div>' +
+                '<button data-question="' + counter + '" class="add-option">add option</button>' +
+                '</td>';
+            cols += '<td><button class="deleteQuestion">Delete Question</button</td>';
+            newRow.append(cols);
+            $("table").append(newRow);
+            counter++;
+        });
+
+        // To add admin form Options
+        var table = $("table");
+        table.on("click", ".add-option", function () {
+            var questionNo = $(this).attr('data-question');
+            var optionNo = $(this).closest('div').find('.options-data-' + questionNo).length;
+            var optionData = '<div class="options-data-' + questionNo + '">' +
+                '<input data-form-part="suit_product_finder_form" class="" type="text"' +
+                'placeholder="Option" name="questions_data[' + questionNo + '][options][' + optionNo + '][option]"/>' +
+                '<input data-form-part="suit_product_finder_form" type="text" placeholder="SKUs (comma saparated)" name="questions_data[' + questionNo + '][options][' + optionNo + '][sku]" size="50">' +
+                '<button data-question="' + questionNo + '" data-item-option="' + optionNo + '" class="delete-option">Delete option</button>' +
+                '</div>';
+            $(this).closest('div').find('.options-container-' + questionNo).append(optionData);
+            optionNo++;
+        });
+
+        table.on("click", ".deleteQuestion", function () {
+            $(this).closest("tr").remove();
+        });
+
+        table.on("click", ".delete-option", function () {
+            $(this).closest("div").remove();
+        });
+    });
+</script>
