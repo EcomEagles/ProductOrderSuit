@@ -5,6 +5,7 @@
  - [Main Functionalities](#markdown-header-main-functionalities)
  - [Installation](#markdown-header-installation)
  - [Specifications](#markdown-header-specifications)
+ - [Adobe Commerce platform compatibility](#Adobe-Commerce-platform-compatibility)
 
 
 ## Main Functionalities
@@ -39,6 +40,10 @@ A necessary solution to completely manage product and process orders
 
  - Controller
 	- adminhtml > productordersuit/index/index
+
+
+## Adobe Commerce platform compatibility
+Adobe Community Edition: 2.4.6 (current)
 
 
 
