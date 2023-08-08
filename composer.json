@@ -1,16 +1,26 @@
 {
-    "name": "codilar/module-productordersuit",
-    "description": "A necessary solution to completely manage product and process orders",
-    "type": "magento2-module",
-    "license": "proprietary",
-    "minimum-stability": "dev",
-    "require": {},
-    "autoload": {
-        "files": [
-            "registration.php"
-        ],
-        "psr-4": {
-            "Codilar\\ProductOrderSuit\\": ""
-        }
+  "name": "codilar/module-productordersuit",
+  "description": "A necessary solution to completely manage product and process orders",
+  "type": "magento2-module",
+  "license": "proprietary",
+  "minimum-stability": "dev",
+  "require": {},
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://repo.magento.com/"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/EcomEagles/ProductOrderSuit.git"
     }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Codilar\\ProductOrderSuit\\": ""
+    }
+  }
 }
