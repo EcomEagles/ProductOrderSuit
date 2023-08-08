@@ -3,18 +3,24 @@
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="product.info.main">
-            <block class="Codilar\ProductOrderSuit\Block\ProductOrderCount"
-                   name="product.count"
-                   template="Codilar_ProductOrderSuit::product/product_count.phtml"
-                   after="product.info.price"/>
+            <block name="product.count" template="Codilar_ProductOrderSuit::product/product_count.phtml"
+                   after="product.info.price" ifconfig="productordersuit/general/active">
+                <arguments>
+                    <argument name="product_view_model" xsi:type="object">
+                        Codilar\ProductOrderSuit\ViewModel\ProductOrderCount
+                    </argument>
+                </arguments>
+            </block>
         </referenceBlock>
         <referenceBlock name="product.info.main">
-            <block
-                class="Codilar\ProductOrderSuit\Block\ProductOrderCount"
-                name="product.info.salable"
-                template="Codilar_ProductOrderSuit::product/avaliable_quantity.phtml"
-                before="product.info.addtocart"/>
+            <block name="product.info.salable" template="Codilar_ProductOrderSuit::product/avaliable_quantity.phtml"
+                   ifconfig="productordersuit/general/order_active" before="product.info.addtocart">
+                <arguments>
+                    <argument name="product_qty_view_model" xsi:type="object">
+                        Codilar\ProductOrderSuit\ViewModel\ProductOrderCount
+                    </argument>
+                </arguments>
+            </block>
         </referenceBlock>
     </body>
-
 </page>

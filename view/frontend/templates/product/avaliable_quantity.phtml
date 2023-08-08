@@ -1,10 +1,13 @@
 <?php
+/**
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Codilar\ProductOrderSuit\ViewModel\ProductOrderCount $viewModel
+ */
 
-/**@var Codilar\ProductOrderSuit\Block\ProductOrderCount $block */
+$viewModel = $block->getData('product_qty_view_model');
 ?>
-<?php if ($block->getProductQty()) { ?>
-    <span class = "avaliable_qty">  <?= $block->escapeHtml($block->getProductQty()) ?> </span>
-<?php }; ?>
-
+<?php if ($viewModel->getProductQty()): ?>
+    <span class="avaliable_qty">  <?= $block->escapeHtml($viewModel->getProductQty()) ?> </span>
+<?php endif; ?>
 
 <span class="avaliable_qty"></span>
